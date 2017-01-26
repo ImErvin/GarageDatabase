@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<title>Add Vehicle</title>
+	<h:outputStylesheet library="css" name="table.css"  />
+
+</h:head>
+
+<h:body>
+	<h:messages globalOnly="true" style="color: red"/>
+	<h2>Add Vehicle</h2>
+	<h:form>
+      Registration Number: <h:inputText value="#{vehicle.reg}" id="reg"
+			p:placeholder="Enter Registration Number" 
+			required="true" requiredMessage="Registration Number is mandatory"/>
+			<h:message style="color: red" for="reg"/> 
+		<br />
+		<br />
+	  Manufacturer Code: <h:inputText value="#{vehicle.mCode}" id="mCode"
+			p:placeholder="Enter Manufacturer Code" 
+			required="true" requiredMessage="Manufacturer Code is mandatory"/>
+			<h:message style="color: red" for="mCode"/> 
+		<br />
+		<br />
+	  Model Code: <h:inputText value="#{vehicle.moCode}" id="moCode"
+			p:placeholder="Enter Model Code" 
+			required="true" requiredMessage="Model Code is mandatory"/>
+			<h:message style="color: red" for="moCode"/> 
+		<br />
+		<br />
+	  Mileage: <h:inputText value="#{vehicle.mileage}" id="mileage"
+			p:placeholder="Enter Mileage" /> 
+		<br />
+		<br />
+	  Price: <h:inputText value="#{vehicle.price}" id="price"
+			p:placeholder="Enter Price" 
+			required="true" requiredMessage="Price is mandatory"/>
+			<h:message style="color: red" for="price"/> 
+		<br />
+		<br />
+	  Color: <h:inputText value="#{vehicle.color}" id="color"
+			p:placeholder="Enter Price" />
+		<br />
+		<br />
+	  Fuel Type: <h:selectOneMenu value="#{vehicle.fuel}">
+		   	<f:selectItem itemValue="petrol" itemLabel="Petrol" />
+		   	<f:selectItem itemValue="diesel" itemLabel="Diesel" />
+		</h:selectOneMenu>
+		<br />
+		<br />
+		<h:commandButton value="Add" action="#{vehicleController.addVehicle(vehicle)}" />
+		<br />
+		<br />
+		<h:outputLink value="vehicleOutput.xhtml">Vehicles</h:outputLink>
+		<br />
+		<h:outputLink value="index.xhtml">Home</h:outputLink>
+		<br />
+	</h:form>
+</h:body>
+</html>

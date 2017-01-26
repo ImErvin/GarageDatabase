@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<title>Model Table </title>
+	<h:outputStylesheet library="css" name="table.css"  />
+	<f:metadata>
+		<f:event listener="#{modelController.loadModels()}"
+			type="preRenderView" />
+	</f:metadata>
+</h:head>
+
+<h:body>
+	<h2>All Models</h2><br/>
+	<h:form>
+		<h:commandButton value="Add Model" action="model" />
+		<h:dataTable value="#{modelController.models}" var="m" border="1" styleClass="order-table" headerClass="order-table-header"
+    	rowClasses="order-table-odd-row,order-table-even-row">
+			<h:column>
+				<f:facet name="header">Manufacturer Code</f:facet>
+					#{m.mCode}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Model Code</f:facet>
+					#{m.code}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Model Name</f:facet>
+					#{m.name}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Model Description</f:facet>
+					#{m.desc}
+			</h:column>
+		</h:dataTable>
+	</h:form>
+	<br/>
+	<br/>
+	<h:outputLink value="index.xhtml">Home</h:outputLink>
+</h:body>
+</html>

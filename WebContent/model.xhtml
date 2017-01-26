@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<title>Add Model</title>
+	<h:outputStylesheet library="css" name="table.css"  />
+</h:head>
+
+<h:body>
+	<h:messages globalOnly="true" style="color: red"/>
+	<h2>Add Model</h2><br/>
+	<h:form>
+      Manufacturer Code: <h:inputText value="#{model.mCode}" id="mCode"
+			p:placeholder="Enter Manufactuer Code" 
+			required="true" requiredMessage="Manufactuer Code is mandatory"/>
+			<h:message style="color: red" for="mCode"/> 
+		<br />
+		<br />
+	  Model Code <h:inputText value="#{model.code}" id="code"
+			p:placeholder="Enter Model Code" 
+			required="true" requiredMessage="Model Code is mandatory!"/>
+			<h:message style="color: red" for="code"/> 
+		<br />
+		<br />
+      Model Name: <h:inputText value="#{model.name}" id="name"
+			p:placeholder="Enter Model Name" 
+			required="true" requiredMessage="Model Name is mandatory!"/>
+			<h:message style="color: red" for="name"/> 
+		<br />
+		<br />
+	  Model Details: <h:inputText value="#{model.desc}" id="details"
+			p:placeholder="Enter Model Description" 
+			required="true" requiredMessage="Model Description is mandatory"/>
+			<h:message style="color: red" for="details"/> 
+		<br /> 
+		<br />
+		<h:commandButton value="Add" action="#{modelController.addModel(model)}" />
+		<br />
+		<br />
+		<h:outputLink value="modelOutput.xhtml">Models</h:outputLink>
+		<br />
+		<h:outputLink value="index.xhtml">Home</h:outputLink>
+		<br />
+	</h:form>
+</h:body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<title>Manufacturers Table </title>
+	<h:outputStylesheet library="css" name="table.css"  />
+	<f:metadata>
+		<f:event listener="#{manufacturerController.loadManufacturers()}"
+			type="preRenderView" />
+	</f:metadata>
+</h:head>
+
+<h:body>
+	<h:messages globalOnly="true" style="color: red"/>
+	<h2>All Manufacturers</h2><br/>
+	<h:form>
+		<h:commandButton value="Add Manufacturer" action="manufacturer" />
+		<h:dataTable value="#{manufacturerController.manufacturers}" var="m" border="1" styleClass="order-table" 
+		headerClass="order-table-header" rowClasses="order-table-odd-row,order-table-even-row">
+			<h:column>
+				<f:facet name="header">Manufacturer Code</f:facet>
+					#{m.code}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Manufacturer Name</f:facet>
+					#{m.name}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Manufacturer Details</f:facet>
+					#{m.details}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Action</f:facet>
+					<h:commandLink value="Update" action="#{manufacturerController.updateManufacturerClick()}">
+						<f:param name="object" value="#{m}"/>
+						<f:actionListener binding="#{manufacturerController.setM(m)}"/>
+					</h:commandLink><br />
+					<h:commandLink onclick="return confirm('Are you sure you want to delete #{m.name}?');"
+					value="Delete" action="#{manufacturerController.deleteManufacturer(m)}"/>
+			</h:column>
+		</h:dataTable>
+	</h:form>
+	<br/>
+	<h:outputLink value="index.xhtml">Home</h:outputLink>
+</h:body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<title>Vehicle Details</title>
+	<h:outputStylesheet library="css" name="table.css"  />
+
+</h:head>
+
+<h:body>
+	<h2>Full Vehicle Details for #{vehicleDetailsController.vDeets.moName}</h2><br/>
+	<b>Vehicle Reg: </b>#{vehicleDetailsController.vDeets.reg}<br/><br/>
+	<b>Manufacturer's Code: </b>#{vehicleDetailsController.vDeets.mCode}<br/><br/>
+	<b>Manufacturer's Name: </b>#{vehicleDetailsController.vDeets.mName}<br/><br/>
+	<b>Manufacturer's Details: </b>#{vehicleDetailsController.vDeets.mDetails}<br/><br/>
+	<b>Model Code: </b>#{vehicleDetailsController.vDeets.moCode}<br/><br/>
+	<b>Model Name: </b>#{vehicleDetailsController.vDeets.moName}<br/><br/>
+	<b>Model Description: </b>#{vehicleDetailsController.vDeets.moDesc}<br/><br/>
+	<b>Vehicle Mileage: </b>#{vehicleDetailsController.vDeets.mileage}<br/><br/>
+	<b>Vehicle Price: </b>#{vehicleDetailsController.vDeets.price}<br/><br/>
+	<b>Vehicle Color: </b>#{vehicleDetailsController.vDeets.color}<br/><br/>
+	<b>Vehicle Fuel Type: </b>#{vehicleDetailsController.vDeets.fuel}<br/><br/>
+	
+	<h:outputLink value="vehicleOutput.xhtml">Vehicles</h:outputLink>
+	<br/>
+	<h:outputLink value="index.xhtml">Home</h:outputLink>
+</h:body>
+</html>
